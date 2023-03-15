@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import FrendListItem from './FriendListItem';
 import css from './Friendlist.module.css';
 
@@ -6,9 +7,13 @@ export default function FriendList({ friends }) {
     <ul className={css.friendList}>
       {friends.map(friend => (
         <li className={css.item} key={friend.id}>
-          <FrendListItem key={friend.id} friend={friend} />
+          <FrendListItem friend={friend} />
         </li>
       ))}
     </ul>
   );
 }
+
+FriendList.propTypes = {
+  id: PropTypes.number,
+};
