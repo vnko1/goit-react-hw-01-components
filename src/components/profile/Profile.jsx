@@ -18,7 +18,7 @@ export default function Profile({
           width="150"
         />
         <p className={css.name}>{username}</p>
-        <p className={css.bottomText}>{tag}</p>
+        <p className={css.bottomText}>@{tag}</p>
         <p className={css.bottomText}>{location}</p>
       </div>
       <ul className={css.statsList}>
@@ -39,11 +39,13 @@ export default function Profile({
   );
 }
 Profile.propTypes = {
-  avatar: PropTypes.string,
-  username: PropTypes.string,
-  tag: PropTypes.string,
-  location: PropTypes.string,
-  followers: PropTypes.number,
-  views: PropTypes.number,
-  likes: PropTypes.number,
+  avatar: PropTypes.string.isRequired,
+  username: PropTypes.string.isRequired,
+  tag: PropTypes.string.isRequired,
+  location: PropTypes.string.isRequired,
+  stats: PropTypes.shape({
+    followers: PropTypes.number.isRequired,
+    views: PropTypes.number.isRequired,
+    likes: PropTypes.number.isRequired,
+  }),
 };

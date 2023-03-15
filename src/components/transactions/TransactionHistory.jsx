@@ -12,11 +12,11 @@ export default function TransactionHistory({ items }) {
         </tr>
       </thead>
       <tbody>
-        {items.map(item => (
-          <tr className={css.row} key={item.id}>
-            <td className={css.mainText}>{item.type}</td>
-            <td className={css.mainText}>{item.amount}</td>
-            <td className={css.mainText}>{item.currency}</td>
+        {items.map(({ id, type, amount, currency }) => (
+          <tr className={css.row} key={id}>
+            <td className={css.mainText}>{type}</td>
+            <td className={css.mainText}>{amount}</td>
+            <td className={css.mainText}>{currency}</td>
           </tr>
         ))}
       </tbody>
@@ -25,8 +25,12 @@ export default function TransactionHistory({ items }) {
 }
 
 TransactionHistory.propTypes = {
-  id: PropTypes.string,
-  type: PropTypes.string,
-  amount: PropTypes.string,
-  currency: PropTypes.string,
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      type: PropTypes.string.isRequired,
+      amount: PropTypes.string.isRequired,
+      currency: PropTypes.string.isRequired,
+    })
+  ),
 };
