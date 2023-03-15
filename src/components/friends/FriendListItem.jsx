@@ -9,7 +9,7 @@ export default function FriendListItem({ friend }) {
     className.push(css.isOffline);
   }
   return (
-    <li className={css.item}>
+    <>
       <span className={className.join(' ')}></span>
       <img
         className={css.avatar}
@@ -18,7 +18,7 @@ export default function FriendListItem({ friend }) {
         width="48"
       />
       <p>{friend.name}</p>
-    </li>
+    </>
   );
 }
 
