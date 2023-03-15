@@ -1,9 +1,6 @@
 import PropTypes from 'prop-types';
+import { getRandomHexColor } from 'components/utis';
 import css from './Statistics.module.css';
-
-function getRandomHexColor() {
-  return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
-}
 
 export default function Statistics({ title = '', stats }) {
   const size = (100 / 100 / stats.length) * 1000;
