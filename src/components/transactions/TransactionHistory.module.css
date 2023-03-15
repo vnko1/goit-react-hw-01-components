@@ -17,9 +17,6 @@
   text-align: center;
 }
 
-.row:nth-child(even) {
-}
-
 .row:nth-child(odd) {
   background-color: silver;
 }
