@@ -1,15 +1,23 @@
 import PropTypes from 'prop-types';
+import css from './Friendlist.module.css';
+
 export default function FriendListItem({ friend }) {
+  const className = [css.status];
+  if (friend.isOnline) {
+    className.push(css.isOnline);
+  } else {
+    className.push(css.isOffline);
+  }
   return (
-    <li className="item">
-      <span className="status">{friend.isOnline}</span>
+    <li className={css.item}>
+      <span className={className.join(' ')}></span>
       <img
-        className="avatar"
+        className={css.avatar}
         src={friend.avatar}
         alt="User avatar"
         width="48"
       />
-      <p className="name">{friend.name}</p>
+      <p>{friend.name}</p>
     </li>
   );
 }
