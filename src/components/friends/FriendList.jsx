@@ -5,9 +5,9 @@ import css from './Friendlist.module.css';
 export default function FriendList({ friends }) {
   return (
     <ul className={css.friendList}>
-      {friends.map(friend => (
-        <li className={css.item} key={friend.id}>
-          <FrendListItem friend={friend} />
+      {friends.map(({ avatar, name, isOnline, id }) => (
+        <li className={css.item} key={id}>
+          <FrendListItem avatar={avatar} name={name} isOnline={isOnline} />
         </li>
       ))}
     </ul>
@@ -16,6 +16,11 @@ export default function FriendList({ friends }) {
 
 FriendList.propTypes = {
   friends: PropTypes.arrayOf(
-    PropTypes.shape({ id: PropTypes.number.isRequired })
+    PropTypes.exact({
+      avatar: PropTypes.string,
+      name: PropTypes.string,
+      isOnline: PropTypes.bool,
+      id: PropTypes.number.isRequired,
+    })
   ),
 };

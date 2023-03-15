@@ -1,9 +1,8 @@
-import PropTypes from 'prop-types';
 import css from './Friendlist.module.css';
 
-export default function FriendListItem({ friend }) {
+export default function FriendListItem({ avatar, name, isOnline }) {
   const className = [css.status];
-  if (friend.isOnline) {
+  if (isOnline) {
     className.push(css.isOnline);
   } else {
     className.push(css.isOffline);
@@ -11,19 +10,8 @@ export default function FriendListItem({ friend }) {
   return (
     <>
       <span className={className.join(' ')}></span>
-      <img
-        className={css.avatar}
-        src={friend.avatar}
-        alt="User avatar"
-        width="48"
-      />
-      <p>{friend.name}</p>
+      <img className={css.avatar} src={avatar} alt="User avatar" width="48" />
+      <p>{name}</p>
     </>
   );
 }
-
-FriendListItem.propTypes = {
-  isOnline: PropTypes.bool,
-  avatar: PropTypes.string,
-  name: PropTypes.string,
-};
