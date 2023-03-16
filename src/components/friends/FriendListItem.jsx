@@ -1,17 +1,11 @@
 import PropTypes from 'prop-types';
-import css from './Friendlist.module.css';
+import { Status, Img } from './FriendList.styled';
 
 export default function FriendListItem({ avatar, name, isOnline }) {
-  const className = [css.status];
-  if (isOnline) {
-    className.push(css.isOnline);
-  } else {
-    className.push(css.isOffline);
-  }
   return (
     <>
-      <span className={className.join(' ')}></span>
-      <img className={css.avatar} src={avatar} alt="User avatar" width="48" />
+      <Status status={isOnline}></Status>
+      <Img src={avatar} alt="User avatar" width="48" />
       <p>{name}</p>
     </>
   );

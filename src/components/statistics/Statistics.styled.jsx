@@ -1,8 +1,11 @@
-.statistics {
-  padding-top: 20px;
-}
+import styled from '@emotion/styled';
+import { getRandomHexColor } from 'utils';
 
-.statisticsContainer {
+export const Section = styled.section`
+  padding-top: 20px;
+`;
+
+export const SectionContainer = styled.div`
   width: 300px;
   margin-left: auto;
   margin-right: auto;
@@ -10,25 +13,27 @@
   background-color: #fff;
   border-radius: 5px;
   overflow: hidden;
-}
+`;
 
-.title {
+export const Title = styled.h2`
   margin-bottom: 20px;
   text-align: center;
   text-transform: uppercase;
   font-weight: 600;
   font-size: 17px;
-}
+`;
 
-.statList {
+export const StatList = styled.ul`
   display: flex;
   justify-content: space-between;
-}
+`;
 
-.statItem {
+export const StatItem = styled.li`
   padding: 15px 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-}
+  background-color: ${getRandomHexColor};
+  width: ${({ items }) => `${(100 / 100 / items.length) * 1000}px`};
+`;

@@ -1,5 +1,16 @@
 import PropTypes from 'prop-types';
-import css from './Profile.module.css';
+
+import {
+  ProfileCard,
+  Description,
+  Avatar,
+  Name,
+  OptText,
+  Stats,
+  Stat,
+  Label,
+  Quantity,
+} from './Profile.styled';
 
 export default function Profile({
   avatar,
@@ -9,33 +20,28 @@ export default function Profile({
   stats: { followers, views, likes },
 }) {
   return (
-    <div className={css.profile}>
-      <div className={css.description}>
-        <img
-          src={avatar}
-          alt="User avatar"
-          className={css.avatar}
-          width="150"
-        />
-        <p className={css.name}>{username}</p>
-        <p className={css.bottomText}>@{tag}</p>
-        <p className={css.bottomText}>{location}</p>
-      </div>
-      <ul className={css.statsList}>
-        <li className={css.statsItem}>
-          <span className={css.label}>Followers</span>
-          <span className={css.quantity}>{followers}</span>
-        </li>
-        <li className={css.statsItem}>
-          <span className={css.label}>Views</span>
-          <span className={css.quantity}>{views}</span>
-        </li>
-        <li className={css.statsItem}>
-          <span className={css.label}>Likes</span>
-          <span className={css.quantity}>{likes}</span>
-        </li>
-      </ul>
-    </div>
+    <ProfileCard>
+      <Description>
+        <Avatar src={avatar} alt="User avatar" width="150" />
+        <Name>{username}</Name>
+        <OptText>@{tag}</OptText>
+        <OptText>{location}</OptText>
+      </Description>
+      <Stats>
+        <Stat>
+          <Label>Followers</Label>
+          <Quantity>{followers}</Quantity>
+        </Stat>
+        <Stat>
+          <Label>Views</Label>
+          <Quantity>{views}</Quantity>
+        </Stat>
+        <Stat>
+          <Label>Likes</Label>
+          <Quantity>{likes}</Quantity>
+        </Stat>
+      </Stats>
+    </ProfileCard>
   );
 }
 Profile.propTypes = {
