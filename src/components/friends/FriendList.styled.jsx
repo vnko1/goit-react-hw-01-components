@@ -11,7 +11,8 @@ export const FriendItem = styled.li`
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  background-color: #fff;
+
+  background-color: ${p => p.theme.colors.white};
   padding: 10px;
   border-radius: 5px;
 
@@ -27,9 +28,9 @@ export const Status = styled.span`
   border-radius: 50%;
   background-color: ${({ status }) => {
     if (status) {
-      return 'green';
+      return p => p.theme.colors.green;
     } else {
-      return 'red';
+      return p => p.theme.colors.red;
     }
   }};
 `;

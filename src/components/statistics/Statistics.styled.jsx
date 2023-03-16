@@ -10,7 +10,7 @@ export const SectionContainer = styled.div`
   margin-left: auto;
   margin-right: auto;
   padding: 10px 0 0;
-  background-color: #fff;
+  background-color: ${p => p.theme.colors.white};
   border-radius: 5px;
   overflow: hidden;
 `;

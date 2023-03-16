@@ -9,7 +9,7 @@ export const ProfileCard = styled.div`
 
 export const Description = styled.div`
   padding: 10px 0;
-  background-color: #fff;
+  background-color: ${p => p.theme.colors.white};
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
 `;
@@ -29,7 +29,7 @@ export const Name = styled.p`
 export const OptText = styled.p`
   margin-bottom: 10px;
   text-align: center;
-  color: grey;
+  color: ${p => p.theme.colors.grey};
 `;
 
 export const Stats = styled.ul`
@@ -42,7 +42,7 @@ export const Stats = styled.ul`
 
 export const Stat = styled.li`
   padding: 10px 0;
-  background-color: whitesmoke;
+  background-color: ${p => p.theme.colors.smoke};
   width: calc(100% / 3);
   display: flex;
   flex-direction: column;
@@ -52,7 +52,7 @@ export const Stat = styled.li`
 
 export const Label = styled.span`
   margin-bottom: 5px;
-  color: grey;
+  color: ${p => p.theme.colors.grey};
 `;
 
 export const Quantity = styled.span`
